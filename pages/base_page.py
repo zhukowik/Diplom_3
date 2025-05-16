@@ -46,4 +46,8 @@ class BasePage:
         element = self.wait_for_element(locator)
         self.driver.execute_script("arguments[0].scrollIntoView;", element)
 
+    @allure.step("Получить url страницы")
+    def get_url_page(self):
+        url = self.driver.current_url
+        return url
 

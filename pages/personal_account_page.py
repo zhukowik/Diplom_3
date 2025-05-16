@@ -71,3 +71,8 @@ class PersonalAccountPage(BasePage):
     @allure.step("Клик на кнопку Оформить заказ")
     def click_button_place_order(self):
         self.click_on_element(MainPageLocators.BUTTON_PLACE_AN_ORDER)
+
+    @allure.step("Получить url страницы")
+    def get_url_personal_account(self):
+        url = self.get_url_page()
+        return url

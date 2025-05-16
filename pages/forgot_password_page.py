@@ -40,3 +40,8 @@ class ForgotPasswordPage(BasePage):
     def get_class_field_password(self):
         actual_class = self.find_the_item_on_the_page(ForgotPasswordLocators.FIELD_PASSWORD)
         return actual_class
+
+    @allure.step("Получить url страницы")
+    def get_url_forgot_password(self):
+        url = self.get_url_page()
+        return url

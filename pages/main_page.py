@@ -59,3 +59,8 @@ class MainPage(BasePage):
     def check_text_popup_order(self, text):
         actual_text = self.get_text_on_element(MainPageLocators.LABEL_STARTED_COOKING)
         return actual_text == text
+
+    @allure.step("Получить url страницы")
+    def get_url_main(self):
+        url = self.get_url_page()
+        return url

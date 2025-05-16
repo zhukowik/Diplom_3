@@ -13,7 +13,7 @@ class TestLoginPage:
         personal_account_page = PersonalAccountPage(login)
         personal_account_page.click_button_personal_account()
         personal_account_page.find_label_profile()
-        assert login.current_url == curl.PERSONAL_ACCOUNT
+        assert personal_account_page.get_url_personal_account() == curl.PERSONAL_ACCOUNT
 
     @allure.title("Проверка перехода в раздел «История заказов»")
     def test_going_history_order(self,login):
@@ -32,4 +32,4 @@ class TestLoginPage:
         personal_account_page.find_label_profile()
         personal_account_page.click_button_exit_account()
         personal_account_page.find_label_login()
-        assert login.current_url == curl.LOGIN_PAGE
+        assert personal_account_page.get_url_page() == curl.LOGIN_PAGE

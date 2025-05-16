@@ -14,7 +14,7 @@ class TestMainPage:
         main_page.main_page_loading_wait()
         main_page.click_button_personal_account()
         main_page.click_button_constructor()
-        assert driver.current_url == curl.main_site
+        assert main_page.get_url_page() == curl.main_site
 
     @allure.title("Проверка перехода в ленту заказов")
     def test_going_order_feed(self, driver):
@@ -22,14 +22,14 @@ class TestMainPage:
         main_page.main_page_loading_wait()
         main_page.click_button_personal_account()
         main_page.click_button_order_feed()
-        assert driver.current_url == curl.ORDER_FEED
+        assert main_page.get_url_page() == curl.ORDER_FEED
 
     @allure.title("Проверка всплывающего окна при клике на ингредиент")
     def test_pop_up_window_when_click_ingredient(self, driver):
         main_page = MainPage(driver)
         main_page.main_page_loading_wait()
         main_page.click_ingredient()
-        assert curl.INGREDIENT in driver.current_url
+        assert curl.INGREDIENT in main_page.get_url_main()
 
     @allure.title("Проверка закрытия попапа при клике на иконку крестика")
     def test_close_popup_when_click_icon(self, driver):

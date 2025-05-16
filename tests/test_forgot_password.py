@@ -13,7 +13,7 @@ class TestForgotPassword:
         forgot_password.main_page_loading_wait()
         forgot_password.click_button_personal_account()
         forgot_password.click_on_text_forgot_password()
-        assert driver.current_url == curl.FORGOT_PASSWORD_PAGE
+        assert forgot_password.get_url_forgot_password() == curl.FORGOT_PASSWORD_PAGE
 
     @allure.title("Проверка ввода почты и клик по кнопке «Восстановить»")
     def test_send_keys_field_email_and_click_button_recover(self, driver):
@@ -24,7 +24,7 @@ class TestForgotPassword:
         forgot_password.send_keys_in_email_field(DataUser.EMAIL)
         forgot_password.click_button_recover()
         forgot_password.wait_for_field_password()
-        assert driver.current_url == curl.RESET_PASSWORD
+        assert forgot_password.get_url_forgot_password() == curl.RESET_PASSWORD
 
     @allure.title("Проверка клика по кнопке показать/скрыть пароль делает поле активным — подсвечивает его")
     def test_click_show_field_active(self, driver):
